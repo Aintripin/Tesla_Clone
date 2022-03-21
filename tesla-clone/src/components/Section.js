@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from "styled-components"
 
-export default function Header() {
+function Section() {
     return (
         <div>
-            Header
+            section
         </div>
     )
 }
 
+export default Section
