@@ -46,6 +46,9 @@ const ItemText = styled.div`
 const ButtonGroup = styled.div`
     display: flex;
     margin-bottom: 30px;
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `
 
 const LeftButton = styled.div`
@@ -64,8 +67,10 @@ const LeftButton = styled.div`
     margin: 8px;
 `
 
-const RightButton = styled(LeftButton)`         // inherting all the CSS of the LeftButtin
-
+const RightButton = styled(LeftButton)`         // inherting all the CSS of the LeftButton
+    background-color: white;
+    opacity: .65;
+    color: black;
 `
 
 const DownArrow = styled.img`
@@ -76,5 +81,5 @@ const DownArrow = styled.img`
 `
 
 const Buttons = styled.div`
-
+    // font-size: 12px;
 `
