@@ -2,7 +2,7 @@ import React from 'react'
 import styled from "styled-components"
 import Section from "./Section"
 // import { Container } from "reactstrap";
-// import Container from "./Container" 
+// import Container from "styled-components" 
 
 
 
@@ -17,7 +17,7 @@ function Home() {
 export default Home
 
 
-const container = styled.div`
+const Container = styled.div`
     height: 100vh;
 
 `
