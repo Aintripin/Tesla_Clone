@@ -16,10 +16,14 @@ function Section( {title, description, leftBtnText, rightBtnText, backgroundImg}
                     <LeftButton>
                         { leftBtnText }
                     </LeftButton>
-                    <RightButton>
-                        {/* Existing Inventory */}
-                        { rightBtnText }
-                    </RightButton>
+                    { rightBtnText &&                   // if only the text of the button exists
+                                                        // then show the actual button
+                        <RightButton>                   
+                            {/* Existing Inventory */}
+                            { rightBtnText }
+                        </RightButton>
+                    }
+
                 </ButtonGroup>
                 <DownArrow src = "./images/down-arrow.svg" />
             </Buttons>
