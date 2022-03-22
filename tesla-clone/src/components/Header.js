@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from "styled-components"
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from "@mui/icons-material/Close"
 
 export default function Header() {
+    const [burgerStatus, setBurgerStatus] = useState(false);
+
     return (
         <Container>
             <a>
@@ -18,10 +20,13 @@ export default function Header() {
             <RightMenu>
                 <a href = "#">SHOP</a>
                 <a href = "#">TESLA ACCOUNT</a>
-                <CustomMenu />
+                <CustomMenu onClick = { () => setBurgerStatus(true)}/>   
+                                                                        {/* if we click on this the menu'll open */}
             </RightMenu>
-            <BurgerNav>
-                <CloseWrapper>
+            <BurgerNav show = { burgerStatus }>
+                <CloseWrapper onClick = { () => setBurgerStatus(false)}>
+
+                                                                        {/* if we click on this the menu'll close */}
                     <CustomClose />
                 </CloseWrapper>
                 <li><a href = "#">Existing Inventory</a></li>
@@ -93,6 +98,8 @@ const BurgerNav = styled.div`
     display: flex;
     flex-direction: column;
     text-align: start;
+    transition: transform .2s;
+    transform: ${props => props.show ? 'translateX(0%)': 'translateX(100%)' };
     li {                                // adding some lines between the elements of the list
         padding: 15px 0;
         border-bottom: 1px solid rgba(0, 0, 0, .2);
@@ -105,7 +112,7 @@ const BurgerNav = styled.div`
 `
 
 const CustomClose = styled(CloseIcon)`
-
+    cursor: pointer;
 `
 
 const CloseWrapper = styled.div`            // shiting the close button to the right
