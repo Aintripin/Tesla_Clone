@@ -21,7 +21,9 @@ export default function Header() {
                 <CustomMenu />
             </RightMenu>
             <BurgerNav>
-                <CustomClose />
+                <CloseWrapper>
+                    <CustomClose />
+                </CloseWrapper>
                 <li><a href = "#">Existing Inventory</a></li>
                 <li><a href = "#">Used Inventory</a></li>
                 <li><a href = "#">Trade-in</a></li>
@@ -102,6 +104,11 @@ const BurgerNav = styled.div`
     }
 `
 
-const CustomClose = styled.div`
-    
+const CustomClose = styled(CloseIcon)`
+
+`
+
+const CloseWrapper = styled.div`            // shiting the close button to the right
+    display: flex;
+    justify-content: flex-end;
 `
