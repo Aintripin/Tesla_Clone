@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';                   // this is a hook
 export default function Header() {
     const [burgerStatus, setBurgerStatus] = useState(false);
     const cars = useSelector(selectCars);
-    console.log(cars);
+    // console.log(cars);
 
     return (
         <Container>
@@ -16,10 +16,13 @@ export default function Header() {
                 <img src = "./images/logo.svg"></img>
             </a>
             <Menu>
-                <a href = "#">Model S</a>
+                {cars && cars.map((car, index) => (
+                    <a key = {index} href = "#">{car}</a>    
+                ))}
+                {/* <a href = "#">Model S</a>
                 <a href = "#">Model Y</a>
                 <a href = "#">Model 3</a>
-                <a href = "#">Model X</a>
+                <a href = "#">Model X</a> */}
             </Menu>
             <RightMenu>
                 <a href = "#">SHOP</a>
@@ -33,14 +36,17 @@ export default function Header() {
                                                                         {/* if we click on this the menu'll close */}
                     <CustomClose />
                 </CloseWrapper>
-                <li><a href = "#">Existing Inventory</a></li>
+                {cars && cars.map((car, index) => (
+                    <li key = {index}><a href = "#">{car}</a></li>
+                ))}
+                {/* <li><a href = "#">Existing Inventory</a></li>
                 <li><a href = "#">Used Inventory</a></li>
                 <li><a href = "#">Trade-in</a></li>
                 <li><a href = "#">Cybertruck</a></li>
                 <li><a href = "#">Roadster</a></li>
                 <li><a href = "#">Semi</a></li>
                 <li><a href = "#">Charging</a></li>
-                <li><a href = "#">Power</a></li>
+                <li><a href = "#">Power</a></li> */}
             </BurgerNav>
         </Container>
     )
